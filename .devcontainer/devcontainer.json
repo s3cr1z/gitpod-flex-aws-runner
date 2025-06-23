@@ -1,0 +1,26 @@
+{
+    "name": "Sn1per Kali Linux",
+    "image": "kalilinux/kali-rolling",
+    "privileged": true,
+    "capAdd": [
+        "NET_ADMIN",
+        "SYS_ADMIN"
+    ],
+    "securityOpt": [
+        "seccomp:unconfined"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "postCreateCommand": "apt-get update && apt-get install -y git curl wget sudo python3 python3-pip nmap nikto dirb sqlmap && git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-vscode.vscode-json"
+            ]
+        }
+    },
+    "remoteUser": "root"
+}
